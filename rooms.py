@@ -1,8 +1,10 @@
 import random
 import character as ch
 
+
 def roll():
     return random.randint(1, 20)
+
 
 def room1(character):
     print(f"\nWelcome to room 1 {character.name}")
@@ -88,3 +90,18 @@ def room3(character):
     if character.health <= 0:
         print(f"You lost!")
         exit()
+
+
+def room4(character):
+    print(f"\nWelcome to room 4 {character.name}")
+    zodiacs = {
+        'taurus': "Stubborn Bull",
+        'capricorn': 'Quiet, but calculating'
+    }
+    for zodiac in zodiacs:
+        print(zodiacs[zodiac])
+
+    user_f = input("Pick a word to retrieve your zodiac sign: ")
+
+    if user_f in zodiacs:
+        print(zodiacs[user_f])
