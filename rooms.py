@@ -74,14 +74,17 @@ def room3(character):
             if num == 20:
                 print("Perfect roll! Killed the wizard in one shot")
                 wizard.dec_health(100)
+                character.add_to_score(1 * character.health)
                 break
             elif 20 > num >= 15:
                 print("Nice roll! Hit the wizard for 20 damage")
                 wizard.dec_health(20)
+                character.add_to_score(20)
                 turn += 1
             elif 14 > num >= 9:
                 print("Good roll! Hit the wizard for 10 damage")
                 wizard.dec_health(10)
+                character.add_to_score(20)
                 turn += 1
             else:
                 print("Bad roll! Wizard hits you for 3 damage")
@@ -94,12 +97,14 @@ def room3(character):
 
 def room4(character):
     print(f"\nWelcome to room 4 {character.name}")
+
     zodiacs = {
         'taurus': "Stubborn Bull",
         'capricorn': 'Quiet, but calculating'
     }
+
     for zodiac in zodiacs:
-        print(zodiacs[zodiac])
+        print(zodiac)
 
     user_f = input("Pick a word to retrieve your zodiac sign: ")
 
