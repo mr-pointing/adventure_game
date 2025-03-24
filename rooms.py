@@ -35,6 +35,7 @@ def room1(character):
         exit()
 
 
+
 def room2(character):
     print(f"\nWelcome to room 2 {character.name}")
     random_num = random.randint(1, 10)
@@ -68,28 +69,31 @@ def room3(character):
         print(character)
         print(wizard)
         print(f"Turn: {turn}")
-        user_roll = input("Ready to roll? (y/n) ")
-        if user_roll == 'y':
-            num = roll()
-            if num == 20:
-                print("Perfect roll! Killed the wizard in one shot")
-                wizard.dec_health(100)
-                character.add_to_score(1 * character.health)
-                break
-            elif 20 > num >= 15:
-                print("Nice roll! Hit the wizard for 20 damage")
-                wizard.dec_health(20)
-                character.add_to_score(20)
-                turn += 1
-            elif 14 > num >= 9:
-                print("Good roll! Hit the wizard for 10 damage")
-                wizard.dec_health(10)
-                character.add_to_score(20)
-                turn += 1
-            else:
-                print("Bad roll! Wizard hits you for 3 damage")
-                character.dec_health(3)
-                turn += 1
+        user_turn = input("What do you want to do?\nRoll\nInventory")
+        if user_turn == "Roll":
+            user_roll = input("Ready to roll? (y/n) ")
+            if user_roll == 'y':
+                num = roll()
+                if num == 20:
+                    print("Perfect roll! Killed the wizard in one shot")
+                    wizard.dec_health(100)
+                    character.add_to_score(1 * character.health)
+                    break
+                elif 20 > num >= 15:
+                    print("Nice roll! Hit the wizard for 20 damage")
+                    wizard.dec_health(20)
+                    character.add_to_score(20)
+                    turn += 1
+                elif 14 > num >= 9:
+                    print("Good roll! Hit the wizard for 10 damage")
+                    wizard.dec_health(10)
+                    character.add_to_score(20)
+                    turn += 1
+                else:
+                    print("Bad roll! Wizard hits you for 3 damage")
+                    character.dec_health(3)
+                    turn += 1
+
     if character.health <= 0:
         print(f"You lost!")
         exit()
