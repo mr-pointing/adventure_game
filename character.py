@@ -4,6 +4,8 @@ class Character:
         self.health = health
         self.score = 0
         self.inventory = {}
+        self.hunger = 0
+        self.sanity = 0
 
     def __str__(self):
         return f"{self.name}\t\t\tHealth: {self.health}\t\t\tScore: {self.score}"

@@ -18,4 +18,5 @@ if __name__ == '__main__':
 
     if main_character.health > 0:
         print("Nice job, you made it out alive!")
+        print("You made it out keeping your sanity!")
 
